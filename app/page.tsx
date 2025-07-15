@@ -28,6 +28,7 @@ export default function LEssenceWebsite() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  
   const testimonials = [
     {
       name: "Maria S.",

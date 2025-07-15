@@ -54,8 +54,11 @@ export default function LEssenceWebsite() {
     "/placeholder.svg?height=400&width=600",
     "/placeholder.svg?height=400&width=600",
   ]
-
+  
   const [servicos, setServicos] = useState<any[]>([])
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [currentGalleryImage, setCurrentGalleryImage] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   useEffect(() => {
     fetch('/api/servicos')

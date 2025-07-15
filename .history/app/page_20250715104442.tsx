@@ -55,21 +55,56 @@ export default function LEssenceWebsite() {
     "/placeholder.svg?height=400&width=600",
   ]
 
-  const [servicos, setServicos] = useState<any[]>([])
-  
-  useEffect(() => {
-    fetch('/api/servicos')
-      .then((res) => res.json())
-      .then((data) => setServicos(data))
-      .catch((err) => console.error('Erro ao carregar serviços:', err))
-  }, [])
-  
+  const facialServices = [
+    {
+      title: "Limpeza de Pele",
+      description: "Remoção profunda de impurezas e renovação celular",
+      duration: "60 min",
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Peeling Químico",
+      description: "Renovação da pele com ácidos específicos",
+      duration: "45 min",
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Microagulhamento",
+      description: "Estímulo natural do colágeno para rejuvenescimento",
+      duration: "90 min",
+      image: "/placeholder.svg?height=200&width=300",
+    },
+  ]
+
+  const bodyServices = [
+    {
+      title: "Massagem Modeladora",
+      description: "Modelagem corporal e redução de medidas",
+      duration: "60 min",
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Drenagem Linfática",
+      description: "Eliminação de toxinas e redução do inchaço",
+      duration: "50 min",
+      image: "/placeholder.svg?height=200&width=300",
+    },
+  ]
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
     }, 5000)
     return () => clearInterval(interval)
   }, [testimonials.length])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setMobileMenuOpen(false)
+  }
 
   return (
     <div className="min-h-screen bg-white">

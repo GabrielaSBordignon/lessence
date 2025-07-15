@@ -56,6 +56,9 @@ export default function LEssenceWebsite() {
   ]
 
   const [servicos, setServicos] = useState<any[]>([])
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [currentGalleryImage, setCurrentGalleryImage] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   useEffect(() => {
     fetch('/api/servicos')
@@ -221,84 +224,78 @@ export default function LEssenceWebsite() {
             </TabsList>
 
             <TabsContent value="facial">
-  <div className="grid md:grid-cols-3 gap-8">
-    {servicos
-      .filter((s) => s.categoria === 'facial')
-      .map((service) => (
-        <Card key={service.id} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <CardHeader className="p-0">
-            <Image
-              src={service.imagem_url || '/placeholder.svg'}
-              alt={service.titulo}
-              width={300}
-              height={200}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
-          </CardHeader>
-          <CardContent className="p-6">
-            <CardTitle className="text-[#a89992] mb-2" style={{ fontFamily: "Playfair Display, serif" }}>
-              {service.titulo}
-            </CardTitle>
-            <CardDescription className="text-gray-600 mb-4">{service.descricao}</CardDescription>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center text-[#a89992]">
-                <Clock size={16} className="mr-1" />
-                <span className="text-sm">{service.duracao} min</span>
+              <div className="grid md:grid-cols-3 gap-8">
+                {facialServices.map((service, index) => (
+                  <Card key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <CardHeader className="p-0">
+                      <Image
+                        src={service.image || "/placeholder.svg"}
+                        alt={service.title}
+                        width={300}
+                        height={200}
+                        className="w-full h-48 object-cover rounded-t-lg"
+                      />
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <CardTitle className="text-[#a89992] mb-2" style={{ fontFamily: "Playfair Display, serif" }}>
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-600 mb-4">{service.description}</CardDescription>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center text-[#a89992]">
+                          <Clock size={16} className="mr-1" />
+                          <span className="text-sm">{service.duration}</span>
+                        </div>
+                        <Button
+                          size="sm"
+                          className="bg-[#a89992] hover:bg-[#a89992]/90 text-white rounded-full"
+                          onClick={() => scrollToSection("contact")}
+                        >
+                          Agendar
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-              <Button
-                size="sm"
-                className="bg-[#a89992] hover:bg-[#a89992]/90 text-white rounded-full"
-                onClick={() => scrollToSection('contact')}
-              >
-                Agendar
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-  </div>
-</TabsContent>
+            </TabsContent>
 
-
-<TabsContent value="corporal">
-  <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-    {servicos
-      .filter((s) => s.categoria === 'corporal')
-      .map((service) => (
-        <Card key={service.id} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <CardHeader className="p-0">
-            <Image
-              src={service.imagem_url || '/placeholder.svg'}
-              alt={service.titulo}
-              width={300}
-              height={200}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
-          </CardHeader>
-          <CardContent className="p-6">
-            <CardTitle className="text-[#a89992] mb-2" style={{ fontFamily: "Playfair Display, serif" }}>
-              {service.titulo}
-            </CardTitle>
-            <CardDescription className="text-gray-600 mb-4">{service.descricao}</CardDescription>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center text-[#a89992]">
-                <Clock size={16} className="mr-1" />
-                <span className="text-sm">{service.duracao} min</span>
+            <TabsContent value="corporal">
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {bodyServices.map((service, index) => (
+                  <Card key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <CardHeader className="p-0">
+                      <Image
+                        src={service.image || "/placeholder.svg"}
+                        alt={service.title}
+                        width={300}
+                        height={200}
+                        className="w-full h-48 object-cover rounded-t-lg"
+                      />
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <CardTitle className="text-[#a89992] mb-2" style={{ fontFamily: "Playfair Display, serif" }}>
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-600 mb-4">{service.description}</CardDescription>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center text-[#a89992]">
+                          <Clock size={16} className="mr-1" />
+                          <span className="text-sm">{service.duration}</span>
+                        </div>
+                        <Button
+                          size="sm"
+                          className="bg-[#a89992] hover:bg-[#a89992]/90 text-white rounded-full"
+                          onClick={() => scrollToSection("contact")}
+                        >
+                          Agendar
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-              <Button
-                size="sm"
-                className="bg-[#a89992] hover:bg-[#a89992]/90 text-white rounded-full"
-                onClick={() => scrollToSection('contact')}
-              >
-                Agendar
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-  </div>
-</TabsContent>
-
+            </TabsContent>
           </Tabs>
         </div>
       </section>

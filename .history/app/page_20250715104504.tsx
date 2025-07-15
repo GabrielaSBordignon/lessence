@@ -54,22 +54,23 @@ export default function LEssenceWebsite() {
     "/placeholder.svg?height=400&width=600",
     "/placeholder.svg?height=400&width=600",
   ]
+  
+  ]
 
-  const [servicos, setServicos] = useState<any[]>([])
-  
-  useEffect(() => {
-    fetch('/api/servicos')
-      .then((res) => res.json())
-      .then((data) => setServicos(data))
-      .catch((err) => console.error('Erro ao carregar serviços:', err))
-  }, [])
-  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
     }, 5000)
     return () => clearInterval(interval)
   }, [testimonials.length])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setMobileMenuOpen(false)
+  }
 
   return (
     <div className="min-h-screen bg-white">

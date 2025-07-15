@@ -3,9 +3,8 @@ import "./globals.css"
 import type { ReactNode } from "react"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "L' Essence",
+  description: "Gaby e Lari",
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -50,8 +50,10 @@ export default function LEssenceWebsite() {
   const galleryImages = [
     "limpezadepeleantesdepois/image.png?height=400&width=600",
     "massagemmodeladoraantesdepois/image.png?height=400&width=600",
-    "microagulhamentoantesdepois/image.png?height=200&width=300",
-    "peelingquimicoantesdepois/image.png?height=400&width=600",
+    "microagulhamentoantesdepois/image.png?height=400&width=600",
+    "public\peelingquimicoantesdepois\image.png?height=400&width=600",
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=400&width=600",
   ]
 
   const [servicos, setServicos] = useState<any[]>([])
@@ -317,10 +319,9 @@ export default function LEssenceWebsite() {
               <Image
                 src={galleryImages[currentGalleryImage] || "/placeholder.svg"}
                 alt="Antes e depois"
-                width={400}
-                height={200}
-                className="mx-auto justify-center object-cover rounded-lg shadow-lg"
-
+                width={800}
+                height={400}
+                className="w-full h-96 object-cover rounded-lg shadow-lg"
               />
 
               <button

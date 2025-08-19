@@ -317,10 +317,9 @@ export default function LEssenceWebsite() {
               <Image
                 src={galleryImages[currentGalleryImage] || "/placeholder.svg"}
                 alt="Antes e depois"
-                width={400}
-                height={200}
-                className="mx-auto justify-center object-cover rounded-lg shadow-lg"
-
+                width={800}
+                height={400}
+                className=" object-cover rounded-lg shadow-lg"
               />
 
               <button

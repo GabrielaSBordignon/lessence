@@ -319,7 +319,7 @@ export default function LEssenceWebsite() {
                 alt="Antes e depois"
                 width={400}
                 height={200}
-                className="mx-auto justify-center object-cover rounded-lg shadow-lg"
+                className="justify-center object-cover rounded-lg shadow-lg"
 
               />
 
